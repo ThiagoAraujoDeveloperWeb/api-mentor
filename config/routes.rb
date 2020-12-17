@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resource :users, only: [:create]
-  post "/login", to: "users#login"
-  get "/auto_login", to: "users#auto_login"
+  # resource :books
 
-  get "/index", to: "users#index"
+  # USER
+    post "/login", to: "users#login"
 
-  get "/livros", to: "books#livros"
+    get "/auto_login", to: "users#auto_login"
 
-  get "/vacancies", to: "books#vacancies"
+    get "/index", to: "users#index"
+
+  # NOTES
+    get "/books", to: "books#index"
+
+    post "/create_note", to: "books#create"
 end

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token}
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "Usuario ou senha incorretos"}
     end
   end
 
@@ -21,12 +21,11 @@ class UsersController < ApplicationController
       token = encode_token({user_id: @user.id})
       render json: {user: @user, token: token, role: 'user'}
     else
-      render json: {error: "Invalid username or password"}
+      render json: {error: "Usuario ou senha incorretos"}
     end
   end
 
   def index
-    # binding.pry
     @users = User.all
 
     render json: @users
