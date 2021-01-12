@@ -14,4 +14,14 @@ Rails.application.routes.draw do
     get "/books", to: "books#index"
 
     post "/create_note", to: "books#create"
+
+    get "/divisions", to: "divisions#divisions"
+
+    post "/create_division", to: "divisions#create_division"
+
+    get "/get_division/:id", to: "divisions#get_division"
+
+    put "/update_division/:id", to: "divisions#update_division"
+
+    delete "/destroy_division/:id", to: "divisions#destroy_division"
 end

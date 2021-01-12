@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_230843) do
+ActiveRecord::Schema.define(version: 2021_01_12_112231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 2020_12_17_230843) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
+  create_table "divisions", force: :cascade do |t|
+    t.string "data"
+    t.string "entrada"
+    t.string "dinheiro"
+    t.string "cartao"
+    t.string "capitalDeGiro"
+    t.string "reserva"
+    t.string "salario"
+    t.string "despesas"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.text "descricao"
+    t.index ["user_id"], name: "index_divisions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -33,4 +49,5 @@ ActiveRecord::Schema.define(version: 2020_12_17_230843) do
   end
 
   add_foreign_key "books", "users"
+  add_foreign_key "divisions", "users"
 end
